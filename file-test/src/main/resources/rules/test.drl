@@ -1,0 +1,12 @@
+package rules
+
+import org.example.dto.Order
+
+//规则2：100元-500元 加100积分
+rule "score_test1"
+when
+    $s : Order(amount > 100 && amount <= 500)
+then
+    $s.setScore(100);
+    System.out.println("消费100元-500元 加test1积分 ");
+end
